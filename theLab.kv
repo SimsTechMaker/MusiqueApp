@@ -1,0 +1,144 @@
+WidegetsExma:
+
+<ImagesLab@GridLayout>:
+    cols : 3
+    Image:
+        source : "images/logomoi2.png"
+    Image:
+        source : "images/logomoi2.png"
+    Image:
+        source : "images/logomoi2.png"
+
+
+<WidegetsExma>:
+    cols : 3
+    ToggleButton:
+        text : "OFF"
+        on_state : root.toggel(self)
+        size_hint : None , 1
+        height : "80dp"
+    Button :
+        text : "Clic ici"
+        on_press : root.clic_buton()
+        disabled : not root.activ_cont
+    Label :
+        text : root.my_text
+        font_name : "fonts/LCD.ttf"
+        font_size : "80dp"
+        color : "#2b8ea9"
+    Switch:
+        id : my_switch
+        size_hint : None , 1
+        height : "80dp"
+        on_active : root.switch_activ(self)
+    Slider:
+        id : my_slider
+        min : 0
+        max : 100
+        orientation : "vertical"
+        on_value : root.Slider_activ(self)
+        disabled : not my_switch.active
+    BoxLayout:
+        orientation : "vertical"
+        Label:
+            text : str(int(my_slider.value))
+        ProgressBar:
+            max : 100
+            value : my_slider.value
+
+            disabled : not my_switch.active
+    TextInput:
+        id : my_textinput
+        size_hint : None , 1
+        height : "80dp"
+        text : "Salut"
+        multiline : False
+        on_text_validate : root.text_ok(self)
+    Label :
+        text : root.text_input
+
+
+<PageLayoutLab@PageLayout>:
+    MainWidget:
+    BoxLayoutLab:
+    AnchorLayoutLap:
+    GridLayoutLab:
+
+
+<ScrollViewLab@ScrollView>:
+    StackLayoutLab:
+        # Pour faire un defiliment infinit
+        size_hint : 1, None
+        height : self.minimum_height
+
+
+
+<GridLayoutLab>:
+    # rows : pour le nombre de ligne
+    #cols : pour le nombre de colone
+
+    rows : 2
+
+
+    Button:
+        text : "A"
+    Button:
+        text : "B"
+    BoxLayoutLab:
+    Button:
+        text : "D"
+    Button:
+        text : "E"
+    Button:
+        text : "F"
+    Button:
+        text : "G"
+<AnchorLayoutLap>:
+    # right , left, center Pour l'axe des x
+    anchor_x: "center"
+    # bottom, top, center pour l'axe des y
+    anchor_y: "bottom"
+    BoxLayout:
+
+        size_hint : .2, .2
+        Button:
+            text : "A"
+        Button:
+            text : "C"
+
+<BoxLayoutLab>:
+    orientation :  "horizontal"
+    BoxLayout:
+        orientation: "vertical"
+        spacing : "10dp"
+        Button :
+            text : "A"
+        Button :
+            text : "B"
+        Button :
+            text : "C"
+        Button :
+            text : "D"
+    Button:
+        text : "B"
+        size_hint : .5,None
+        height : "60dp"
+        # x, center_x, right pour la manipulation sur l'axe des x
+        # y , center_y , top pour la manipulation sur l'axe des y
+        pos_hint : {"y": .5}
+    Label:
+        text : "C"
+
+
+
+
+<MainWidget>:
+    Button:
+        text : "Bonjour !"
+        size : "100dp", "50dp"
+        pos : 100, 300
+    Label
+        text : "Bonjour2!"
+        size : "100dp", "50dp"
+        pos : 111,400
+        color :  "#f5451d"
